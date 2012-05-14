@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D1B3B08155A34CB00156B09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1B3B07155A34CB00156B09 /* UIKit.framework */; };
+		5D1B3B0A155A34CB00156B09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1B3B09155A34CB00156B09 /* Foundation.framework */; };
+		5D1B3B0C155A34CB00156B09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1B3B0B155A34CB00156B09 /* CoreGraphics.framework */; };
+		5D1B3B12155A34CB00156B09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D1B3B10155A34CB00156B09 /* InfoPlist.strings */; };
+		5D1B3B14155A34CB00156B09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B3B13155A34CB00156B09 /* main.m */; };
+		5D1B3B18155A34CB00156B09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B3B17155A34CB00156B09 /* AppDelegate.m */; };
+		5D1B3B25155A367200156B09 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B3B24155A367200156B09 /* MainViewController.m */; };
+		5D1B3B2D155A385D00156B09 /* TSPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B3B2C155A385D00156B09 /* TSPopoverController.m */; };
+		5D1B3B31155AA4A000156B09 /* TSPopoverTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B3B30155AA4A000156B09 /* TSPopoverTouchView.m */; };
+		5D9EB0A9155BEB1B002A2E68 /* TSPopoverPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EB0A8155BEB1B002A2E68 /* TSPopoverPopoverView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5D1B3B03155A34CB00156B09 /* TSPopoverDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSPopoverDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D1B3B07155A34CB00156B09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5D1B3B09155A34CB00156B09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5D1B3B0B155A34CB00156B09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5D1B3B0F155A34CB00156B09 /* TSPopoverDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TSPopoverDemo-Info.plist"; sourceTree = "<group>"; };
+		5D1B3B11155A34CB00156B09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5D1B3B13155A34CB00156B09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5D1B3B15155A34CB00156B09 /* TSPopoverDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSPopoverDemo-Prefix.pch"; sourceTree = "<group>"; };
+		5D1B3B16155A34CB00156B09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5D1B3B17155A34CB00156B09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5D1B3B23155A367200156B09 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		5D1B3B24155A367200156B09 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		5D1B3B2B155A385D00156B09 /* TSPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSPopoverController.h; path = ../../TSPopover/TSPopoverController.h; sourceTree = "<group>"; };
+		5D1B3B2C155A385D00156B09 /* TSPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSPopoverController.m; path = ../../TSPopover/TSPopoverController.m; sourceTree = "<group>"; };
+		5D1B3B2F155AA4A000156B09 /* TSPopoverTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSPopoverTouchView.h; path = ../../TSPopover/TSPopoverTouchView.h; sourceTree = "<group>"; };
+		5D1B3B30155AA4A000156B09 /* TSPopoverTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSPopoverTouchView.m; path = ../../TSPopover/TSPopoverTouchView.m; sourceTree = "<group>"; };
+		5D1B3B32155AA55F00156B09 /* TSPopoverTouchesDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TSPopoverTouchesDelegate.h; path = ../../TSPopover/TSPopoverTouchesDelegate.h; sourceTree = "<group>"; };
+		5D9EB0A7155BEB1B002A2E68 /* TSPopoverPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSPopoverPopoverView.h; path = ../../TSPopover/TSPopoverPopoverView.h; sourceTree = "<group>"; };
+		5D9EB0A8155BEB1B002A2E68 /* TSPopoverPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSPopoverPopoverView.m; path = ../../TSPopover/TSPopoverPopoverView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5D1B3B00155A34CB00156B09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D1B3B08155A34CB00156B09 /* UIKit.framework in Frameworks */,
+				5D1B3B0A155A34CB00156B09 /* Foundation.framework in Frameworks */,
+				5D1B3B0C155A34CB00156B09 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D1B3AF8155A34CB00156B09 = {
+			isa = PBXGroup;
+			children = (
+				5D1B3B0D155A34CB00156B09 /* TSPopoverDemo */,
+				5D1B3B2A155A383200156B09 /* TSPopover */,
+				5D1B3B06155A34CB00156B09 /* Frameworks */,
+				5D1B3B04155A34CB00156B09 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5D1B3B04155A34CB00156B09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D1B3B03155A34CB00156B09 /* TSPopoverDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D1B3B06155A34CB00156B09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D1B3B07155A34CB00156B09 /* UIKit.framework */,
+				5D1B3B09155A34CB00156B09 /* Foundation.framework */,
+				5D1B3B0B155A34CB00156B09 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D1B3B0D155A34CB00156B09 /* TSPopoverDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5D1B3B16155A34CB00156B09 /* AppDelegate.h */,
+				5D1B3B17155A34CB00156B09 /* AppDelegate.m */,
+				5D1B3B23155A367200156B09 /* MainViewController.h */,
+				5D1B3B24155A367200156B09 /* MainViewController.m */,
+				5D1B3B0E155A34CB00156B09 /* Supporting Files */,
+			);
+			path = TSPopoverDemo;
+			sourceTree = "<group>";
+		};
+		5D1B3B0E155A34CB00156B09 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5D1B3B0F155A34CB00156B09 /* TSPopoverDemo-Info.plist */,
+				5D1B3B10155A34CB00156B09 /* InfoPlist.strings */,
+				5D1B3B13155A34CB00156B09 /* main.m */,
+				5D1B3B15155A34CB00156B09 /* TSPopoverDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5D1B3B2A155A383200156B09 /* TSPopover */ = {
+			isa = PBXGroup;
+			children = (
+				5D1B3B2B155A385D00156B09 /* TSPopoverController.h */,
+				5D1B3B2C155A385D00156B09 /* TSPopoverController.m */,
+				5D1B3B2F155AA4A000156B09 /* TSPopoverTouchView.h */,
+				5D1B3B30155AA4A000156B09 /* TSPopoverTouchView.m */,
+				5D1B3B32155AA55F00156B09 /* TSPopoverTouchesDelegate.h */,
+				5D9EB0A7155BEB1B002A2E68 /* TSPopoverPopoverView.h */,
+				5D9EB0A8155BEB1B002A2E68 /* TSPopoverPopoverView.m */,
+			);
+			name = TSPopover;
+			path = TSPopoverDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5D1B3B02155A34CB00156B09 /* TSPopoverDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D1B3B1B155A34CB00156B09 /* Build configuration list for PBXNativeTarget "TSPopoverDemo" */;
+			buildPhases = (
+				5D1B3AFF155A34CB00156B09 /* Sources */,
+				5D1B3B00155A34CB00156B09 /* Frameworks */,
+				5D1B3B01155A34CB00156B09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSPopoverDemo;
+			productName = TSPopoverDemo;
+			productReference = 5D1B3B03155A34CB00156B09 /* TSPopoverDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5D1B3AFA155A34CB00156B09 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ar.ms;
+			};
+			buildConfigurationList = 5D1B3AFD155A34CB00156B09 /* Build configuration list for PBXProject "TSPopoverDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5D1B3AF8155A34CB00156B09;
+			productRefGroup = 5D1B3B04155A34CB00156B09 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D1B3B02155A34CB00156B09 /* TSPopoverDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5D1B3B01155A34CB00156B09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D1B3B12155A34CB00156B09 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5D1B3AFF155A34CB00156B09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D1B3B14155A34CB00156B09 /* main.m in Sources */,
+				5D1B3B18155A34CB00156B09 /* AppDelegate.m in Sources */,
+				5D1B3B25155A367200156B09 /* MainViewController.m in Sources */,
+				5D1B3B2D155A385D00156B09 /* TSPopoverController.m in Sources */,
+				5D1B3B31155AA4A000156B09 /* TSPopoverTouchView.m in Sources */,
+				5D9EB0A9155BEB1B002A2E68 /* TSPopoverPopoverView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5D1B3B10155A34CB00156B09 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D1B3B11155A34CB00156B09 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5D1B3B19155A34CB00156B09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5D1B3B1A155A34CB00156B09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5D1B3B1C155A34CB00156B09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSPopoverDemo/TSPopoverDemo-Prefix.pch";
+				INFOPLIST_FILE = "TSPopoverDemo/TSPopoverDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5D1B3B1D155A34CB00156B09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSPopoverDemo/TSPopoverDemo-Prefix.pch";
+				INFOPLIST_FILE = "TSPopoverDemo/TSPopoverDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5D1B3AFD155A34CB00156B09 /* Build configuration list for PBXProject "TSPopoverDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D1B3B19155A34CB00156B09 /* Debug */,
+				5D1B3B1A155A34CB00156B09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D1B3B1B155A34CB00156B09 /* Build configuration list for PBXNativeTarget "TSPopoverDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D1B3B1C155A34CB00156B09 /* Debug */,
+				5D1B3B1D155A34CB00156B09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5D1B3AFA155A34CB00156B09 /* Project object */;
+}
