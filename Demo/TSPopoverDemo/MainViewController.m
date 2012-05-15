@@ -102,7 +102,7 @@
 {
     UITableViewController *tableViewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
     tableViewController.view.frame = CGRectMake(0,0, 320, 400);
-    TSPopoverController *popoverController = [[TSPopoverController alloc] initWithViewController:tableViewController];
+    TSPopoverController *popoverController = [[TSPopoverController alloc] initWithContentViewController:tableViewController];
 
     popoverController.cornerRadius = 5;
     popoverController.titleText = @"change order";

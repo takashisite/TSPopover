@@ -51,7 +51,7 @@
 	return self;
 }
 
-- (id)initWithViewController:(UIViewController*)viewController
+- (id)initWithContentViewController:(UIViewController*)viewController
 {
     self = [self init];
     
