@@ -34,7 +34,7 @@
 @synthesize titleFont = _titleFont;
 @synthesize arrowPosition = _arrowPosition;
 @synthesize popoverBaseColor = _popoverBaseColor;
-@synthesize isGradient = _isGradient;
+@synthesize popoverGradient = _popoverGradient;
 
 - (id)init {
 	if ((self = [super init])) {
@@ -44,7 +44,7 @@
         self.view.backgroundColor = [UIColor clearColor];
         self.arrowPosition = TSPopoverArrowPositionVertical;
         self.popoverBaseColor = [UIColor blackColor];
-        self.isGradient = YES;
+        self.popoverGradient = YES;
         screenRect = [[UIScreen mainScreen] applicationFrame];
         titleLabelheight = 0;
 	}
@@ -149,7 +149,7 @@
     popoverView.frame = [self popoverFrameRect:contentViewFrame senderPoint:senderPoint];
     popoverView.cornerRadius = self.cornerRadius;
     popoverView.baseColor = self.popoverBaseColor;
-    popoverView.isGradient = self.isGradient;
+    popoverView.isGradient = self.popoverGradient;
     [popoverView addSubview:self.contentView];
     [popoverView addSubview:titleLabel];
 

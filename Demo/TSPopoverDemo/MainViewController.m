@@ -107,7 +107,7 @@
     popoverController.cornerRadius = 5;
     popoverController.titleText = @"change order";
     popoverController.popoverBaseColor = [UIColor lightGrayColor];
-    popoverController.isGradient= NO;
+    popoverController.popoverGradient= NO;
 //    popoverController.arrowPosition = TSPopoverArrowPositionHorizontal;
     [popoverController showPopoverWithTouch:event];
 

@@ -42,7 +42,7 @@ typedef NSUInteger TSPopoverArrowPosition;
 @property (strong, nonatomic) UIColor *popoverBaseColor;
 @property (nonatomic) int cornerRadius;
 @property (nonatomic, readwrite) TSPopoverArrowPosition arrowPosition;
-@property (nonatomic) BOOL isGradient; 
+@property (nonatomic) BOOL popoverGradient; 
 
 - (id)initWithContentViewController:(UIViewController*)viewController;
 - (id)initWithView:(UIView*)view;
