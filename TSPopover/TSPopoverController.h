@@ -48,5 +48,6 @@ typedef NSUInteger TSPopoverArrowPosition;
 - (id)initWithView:(UIView*)view;
 - (void) showPopoverWithTouch:(UIEvent*)senderEvent;
 - (void) view:(UIView*)view touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;
+- (void) dismissPopoverAnimatd:(BOOL)animated;
 
 @end

@@ -178,21 +178,41 @@
 
 - (void)view:(UIView*)view touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options:UIViewAnimationOptionAllowAnimatedContent
-                     animations:^{
-                         popoverView.alpha = 0;
-                     }
-                     completion:^(BOOL finished) {
-                         popoverView=nil;
-                         [self.view removeFromSuperview];
-                         self.contentViewController = nil;
-                         self.titleText = nil;
-                         self.titleColor = nil;
-                         self.titleFont = nil;
-                     }
-     ];
+    [self dismissPopoverAnimatd:YES];
+}
+
+
+- (void) dismissPopoverAnimatd:(BOOL)animated
+{
+    if (self.view) {
+        if(animated) {
+            [UIView animateWithDuration:0.2
+                                  delay:0.0
+                                options:UIViewAnimationOptionAllowAnimatedContent
+                             animations:^{
+                                 popoverView.alpha = 0;
+                             }
+                             completion:^(BOOL finished) {
+                                 [self.contentViewController viewDidDisappear:animated];
+                                 popoverView=nil;
+                                 [self.view removeFromSuperview];
+                                 self.contentViewController = nil;
+                                 self.titleText = nil;
+                                 self.titleColor = nil;
+                                 self.titleFont = nil;
+                             }
+             ];
+        }else{
+            [self.contentViewController viewDidDisappear:animated];
+            popoverView=nil;
+            [self.view removeFromSuperview];
+            self.contentViewController = nil;
+            self.titleText = nil;
+            self.titleColor = nil;
+            self.titleFont = nil;
+        }
+        
+    }
 }
 
 - (CGRect) contentFrameRect:(CGRect)contentFrame senderPoint:(CGPoint)senderPoint
@@ -252,6 +272,7 @@
     
     return contentFrameRect;
 }
+
 
 - (CGRect)popoverFrameRect:(CGRect)contentFrame senderPoint:(CGPoint)senderPoint
 {
