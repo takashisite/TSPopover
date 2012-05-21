@@ -100,7 +100,7 @@
     [self showPopoverWithPoint:senderPoint];
 }
 
-- (void) showPopoverWithFrame:(CGRect)senderFrame
+- (void) showPopoverWithRect:(CGRect)senderRect
 {
     
 }

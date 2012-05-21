@@ -1,6 +1,6 @@
 # TSPopover
 
-UIPopover like UI for iPhone - there is lot's of work still to do.
+UIPopover like UI (with ActionSheet) for iPhone - there is lot's of work still to do.
 
 ## Screenshots
 
@@ -21,7 +21,7 @@ UIPopover like UI for iPhone - there is lot's of work still to do.
 ## Usage
 (see sample Xcode project in `/Demo`)  
 
-## customize
+## Customize
 - background color
 - background gradiation (on / off)
 - corner radius
@@ -29,6 +29,10 @@ UIPopover like UI for iPhone - there is lot's of work still to do.
 - title text 
 - title text color
 - title text font
+
+## Changelog
+- Added TSActionSheet
+
 
 
 

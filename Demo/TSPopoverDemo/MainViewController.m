@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "TSPopoverController.h"
+#import "TSActionSheet.h"
 
 @implementation MainViewController
 
@@ -24,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    UIBarButtonItem * topRightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(showPopover:forEvent:)];
+    UIBarButtonItem * topRightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(showActionSheet:forEvent:)];
     self.navigationItem.leftBarButtonItem = topRightButton;
     self.navigationItem.rightBarButtonItem = topRightButton;
     self.navigationController.toolbarHidden = NO;
@@ -111,6 +112,22 @@
 //    popoverController.arrowPosition = TSPopoverArrowPositionHorizontal;
     [popoverController showPopoverWithTouch:event];
 
+}
+
+-(void) showActionSheet:(id)sender forEvent:(UIEvent*)event
+{
+    TSActionSheet *actionSheet = [[TSActionSheet alloc] initWithTitle:@"action sheet"];
+    [actionSheet destructiveButtonWithTitle:@"hoge" block:nil];
+    [actionSheet addButtonWithTitle:@"hoge1" block:^{
+        NSLog(@"pushed hoge1 button");
+    }];
+    [actionSheet addButtonWithTitle:@"moge2" block:^{
+        NSLog(@"pushed hoge2 button");
+    }];
+    [actionSheet cancelButtonWithTitle:@"Cancel" block:nil];
+    actionSheet.cornerRadius = 5;
+    
+    [actionSheet showWithTouch:event];
 }
 
 @end

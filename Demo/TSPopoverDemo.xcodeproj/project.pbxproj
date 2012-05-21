@@ -17,6 +17,8 @@
 		5D1B3B2D155A385D00156B09 /* TSPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B3B2C155A385D00156B09 /* TSPopoverController.m */; };
 		5D1B3B31155AA4A000156B09 /* TSPopoverTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B3B30155AA4A000156B09 /* TSPopoverTouchView.m */; };
 		5D9EB0A9155BEB1B002A2E68 /* TSPopoverPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EB0A8155BEB1B002A2E68 /* TSPopoverPopoverView.m */; };
+		5DB5C6D0156A28090032A8E9 /* TSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5C6CF156A28090032A8E9 /* TSActionSheet.m */; };
+		5DB5C6D8156A37810032A8E9 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5C6D7156A37800032A8E9 /* UIBarButtonItem+WEPopover.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,10 @@
 		5D1B3B32155AA55F00156B09 /* TSPopoverTouchesDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TSPopoverTouchesDelegate.h; path = ../../TSPopover/TSPopoverTouchesDelegate.h; sourceTree = "<group>"; };
 		5D9EB0A7155BEB1B002A2E68 /* TSPopoverPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSPopoverPopoverView.h; path = ../../TSPopover/TSPopoverPopoverView.h; sourceTree = "<group>"; };
 		5D9EB0A8155BEB1B002A2E68 /* TSPopoverPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSPopoverPopoverView.m; path = ../../TSPopover/TSPopoverPopoverView.m; sourceTree = "<group>"; };
+		5DB5C6CE156A28090032A8E9 /* TSActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSActionSheet.h; path = ../../TSPopover/TSActionSheet.h; sourceTree = "<group>"; };
+		5DB5C6CF156A28090032A8E9 /* TSActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSActionSheet.m; path = ../../TSPopover/TSActionSheet.m; sourceTree = "<group>"; };
+		5DB5C6D6156A37800032A8E9 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "../../TSPopover/UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
+		5DB5C6D7156A37800032A8E9 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WEPopover.m"; path = "../../TSPopover/UIBarButtonItem+WEPopover.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,8 @@
 		5D1B3B2A155A383200156B09 /* TSPopover */ = {
 			isa = PBXGroup;
 			children = (
+				5DB5C6D6156A37800032A8E9 /* UIBarButtonItem+WEPopover.h */,
+				5DB5C6D7156A37800032A8E9 /* UIBarButtonItem+WEPopover.m */,
 				5D1B3B2B155A385D00156B09 /* TSPopoverController.h */,
 				5D1B3B2C155A385D00156B09 /* TSPopoverController.m */,
 				5D1B3B2F155AA4A000156B09 /* TSPopoverTouchView.h */,
@@ -116,6 +124,8 @@
 				5D1B3B32155AA55F00156B09 /* TSPopoverTouchesDelegate.h */,
 				5D9EB0A7155BEB1B002A2E68 /* TSPopoverPopoverView.h */,
 				5D9EB0A8155BEB1B002A2E68 /* TSPopoverPopoverView.m */,
+				5DB5C6CE156A28090032A8E9 /* TSActionSheet.h */,
+				5DB5C6CF156A28090032A8E9 /* TSActionSheet.m */,
 			);
 			name = TSPopover;
 			path = TSPopoverDemo;
@@ -189,6 +199,8 @@
 				5D1B3B2D155A385D00156B09 /* TSPopoverController.m in Sources */,
 				5D1B3B31155AA4A000156B09 /* TSPopoverTouchView.m in Sources */,
 				5D9EB0A9155BEB1B002A2E68 /* TSPopoverPopoverView.m in Sources */,
+				5DB5C6D0156A28090032A8E9 /* TSActionSheet.m in Sources */,
+				5DB5C6D8156A37810032A8E9 /* UIBarButtonItem+WEPopover.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
