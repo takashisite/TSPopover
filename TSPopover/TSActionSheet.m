@@ -23,6 +23,7 @@
 @synthesize popoverBaseColor = _popoverBaseColor;
 @synthesize popoverGradient = _popoverGradient;
 @synthesize buttonGradient = _buttonGradient;
+@synthesize titleShadow = _titleShadow;
 
 
 - (id)initWithTitle:(NSString *)title 
@@ -33,10 +34,11 @@
         buttonsMutableArray = [[NSMutableArray alloc] init];
         self.cornerRadius = CORNER_RADIUS;
         self.buttonGradient = YES;
+        self.titleShadow = YES;
+        self.titleColor = [UIColor whiteColor];
         
         popoverController = [[TSPopoverController alloc] init];
         popoverController.titleText = title;
-        popoverController.titleColor = [UIColor whiteColor];
         popoverController.titleFont = [UIFont boldSystemFontOfSize:14];
         popoverController.popoverBaseColor = [UIColor blackColor];
         popoverController.popoverGradient = YES;
@@ -44,28 +46,51 @@
     return self;
 }
 
-- (void)addButtonWithTitle:(NSString *)title color:(UIColor*)color block:(void (^)())block
+- (void)addButtonWithTitle:(NSString *)title 
+                     color:(UIColor*)color 
+                titleColor:(UIColor*)titleColor 
+               borderWidth:(NSUInteger)borderWidth 
+               borderColor:(UIColor*)borderColor 
+                     block:(void (^)())block
 {
     [buttonsMutableArray addObject:[NSArray arrayWithObjects:
                                     block ? [block copy] : [NSNull null],
                                     title,
                                     color,
+                                    titleColor,
+                                    [NSNumber numberWithInteger:borderWidth],
+                                    borderColor,
                                     nil]];
 }
 
 - (void)addButtonWithTitle:(NSString *)title block:(void (^)())block 
 {
-    [self addButtonWithTitle:title color:[UIColor grayColor] block:block];
+    [self addButtonWithTitle:title
+                       color:[UIColor grayColor]
+                  titleColor:[UIColor whiteColor]
+                 borderWidth:0
+                 borderColor:[UIColor blackColor]
+                       block:block];
 }
 
 - (void)destructiveButtonWithTitle:(NSString *)title block:(void (^)())block
 {
-    [self addButtonWithTitle:title color:[UIColor redColor] block:block];
+    [self addButtonWithTitle:title
+                       color:[UIColor redColor]
+                  titleColor:[UIColor whiteColor]
+                 borderWidth:0
+                 borderColor:[UIColor blackColor]
+                       block:block];
 }
 
 - (void)cancelButtonWithTitle:(NSString *)title block:(void (^)())block
 {
-    [self addButtonWithTitle:title color:[UIColor blackColor] block:block];
+    [self addButtonWithTitle:title
+                       color:[UIColor blackColor]
+                  titleColor:[UIColor whiteColor]
+                 borderWidth:0
+                 borderColor:[UIColor blackColor]
+                       block:block];
 }
 
 
@@ -81,8 +106,11 @@
     {
         NSString *title = [button objectAtIndex:1];
         UIColor *color = [button objectAtIndex:2];
+        UIColor *titleColor = [button objectAtIndex:3];
+        NSUInteger borderWidth = [[button objectAtIndex:4]intValue];
+        UIColor *borderColor = [button objectAtIndex:5];
         
-        UIImage *image = [self buttonImage:color];
+        UIImage *image = [self buttonImage:color borderWidth:borderWidth borderColor:borderColor];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(BORDER, buttonY, self.bounds.size.width-BORDER*2, buttonHeight);
@@ -90,15 +118,18 @@
         button.titleLabel.minimumFontSize = 6;
         button.titleLabel.adjustsFontSizeToFitWidth = YES;
         button.titleLabel.textAlignment = UITextAlignmentCenter;
-        button.titleLabel.shadowOffset = TITLE_SHADOW_OFFSET;
         button.backgroundColor = [UIColor clearColor];
         button.tag = i++;
         
         [button setBackgroundImage:image forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setTitleShadowColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:titleColor forState:UIControlStateNormal];
         [button setTitle:title forState:UIControlStateNormal];
         button.accessibilityLabel = title;
+        
+        if(self.titleShadow){
+            [button setTitleShadowColor:[UIColor blackColor] forState:UIControlStateNormal];
+            button.titleLabel.shadowOffset = TITLE_SHADOW_OFFSET;
+        }
         
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -112,6 +143,9 @@
 
     popoverController.contentView = self;
     popoverController.cornerRadius = self.cornerRadius;
+    popoverController.popoverBaseColor = self.popoverBaseColor;
+    popoverController.popoverGradient = self.popoverGradient;
+    popoverController.titleColor = self.titleColor;
     [popoverController showPopoverWithTouch:senderEvent];
 }
 
@@ -149,7 +183,7 @@
 
 #pragma mark - UIImage
 
--(UIImage*)buttonImage:(UIColor*)color
+-(UIImage*)buttonImage:(UIColor*)color borderWidth:(NSUInteger)borderWidth borderColor:(UIColor*)borderColor
 {
     
     //Size
@@ -188,6 +222,14 @@
         CGContextRestoreGState(context);
     }
     
+    
+    if(borderWidth >0)
+    {
+        if(!borderColor) borderColor = [UIColor blackColor];
+        [borderColor setStroke];
+        roundedRectanglePath.lineWidth = borderWidth;
+        [roundedRectanglePath stroke];
+    }
     
     //// Cleanup
     CGGradientRelease(gradient);

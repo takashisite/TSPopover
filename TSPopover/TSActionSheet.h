@@ -22,12 +22,18 @@
 @property (nonatomic) int cornerRadius;
 @property (nonatomic) BOOL popoverGradient; 
 @property (nonatomic) BOOL buttonGradient;
+@property (nonatomic) BOOL titleShadow;
 
 - (id)initWithTitle:(NSString *)title;
 - (void)cancelButtonWithTitle:(NSString *) title block:(void (^)()) block;
 - (void)destructiveButtonWithTitle:(NSString *) title block:(void (^)()) block;
 - (void)addButtonWithTitle:(NSString *) title block:(void (^)()) block;
-- (void)addButtonWithTitle:(NSString *)title color:(UIColor*)color block:(void (^)())block;
+- (void)addButtonWithTitle:(NSString *)title 
+                     color:(UIColor*)color 
+                titleColor:(UIColor*)titleColor 
+               borderWidth:(NSUInteger)borderWidth 
+               borderColor:(UIColor*)borderColor 
+                     block:(void (^)())block;
 - (void) showWithTouch:(UIEvent*)senderEvent;
 
 @end
