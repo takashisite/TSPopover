@@ -31,7 +31,7 @@ UIPopover like UI (with ActionSheet) for iPhone - there is lot's of work still t
 - title text font
 
 ## Changelog
-- Added TSActionSheet
+- 05/21/2012 Added TSActionSheet
 
 
 
