@@ -23,6 +23,8 @@
 @property (nonatomic) BOOL popoverGradient; 
 @property (nonatomic) BOOL buttonGradient;
 @property (nonatomic) BOOL titleShadow;
+@property (strong, nonatomic) UIColor *titleShadowColor;
+@property (nonatomic) CGSize titleShadowOffset;
 
 - (id)initWithTitle:(NSString *)title;
 - (void)cancelButtonWithTitle:(NSString *) title block:(void (^)()) block;
