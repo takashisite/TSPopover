@@ -24,7 +24,8 @@
 @synthesize popoverGradient = _popoverGradient;
 @synthesize buttonGradient = _buttonGradient;
 @synthesize titleShadow = _titleShadow;
-
+@synthesize titleShadowColor = _titleShadowColor;
+@synthesize titleShadowOffset = _titleShadowOffset;
 
 - (id)initWithTitle:(NSString *)title 
 {
@@ -36,6 +37,8 @@
         self.buttonGradient = YES;
         self.titleShadow = YES;
         self.titleColor = [UIColor whiteColor];
+        self.titleShadowOffset = TITLE_SHADOW_OFFSET;
+        self.titleShadowColor = [UIColor blackColor];
         
         popoverController = [[TSPopoverController alloc] init];
         popoverController.titleText = title;
@@ -127,8 +130,8 @@
         button.accessibilityLabel = title;
         
         if(self.titleShadow){
-            [button setTitleShadowColor:[UIColor blackColor] forState:UIControlStateNormal];
-            button.titleLabel.shadowOffset = TITLE_SHADOW_OFFSET;
+            [button setTitleShadowColor:self.titleShadowColor forState:UIControlStateNormal];
+            button.titleLabel.shadowOffset = self.titleShadowOffset;
         }
         
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
