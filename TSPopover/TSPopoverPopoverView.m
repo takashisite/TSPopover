@@ -138,8 +138,8 @@
     //// Polygon Drawing
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
     if(self.arrowPosition == TSPopoverArrowPositionVertical){
-        arrowFirst = senderLocationInViewPoint.x-ARROW_SIZE/2;
-        arrowLast = senderLocationInViewPoint.x+ARROW_SIZE/2;
+        arrowFirst = senderLocationInViewPoint.x-ARROW_SIZE/1.5;
+        arrowLast = senderLocationInViewPoint.x+ARROW_SIZE/1.5;
         if(arrowFirst < bgRectPositionX + (self.cornerRadius+MARGIN)){
             arrowFirst = bgRectPositionX + (self.cornerRadius+MARGIN);
             arrowLast = arrowFirst + ARROW_SIZE;
