@@ -32,7 +32,7 @@ UIPopover like UI (with ActionSheet) for iPhone - there is lot's of work still t
 
 ## ToDo
 - Landscape mode suppoert.
-- Suppoert iOS 4.2
+- Support iOS 4.2
 
 ## Changelog
 - 05/21/2012 Added TSActionSheet
