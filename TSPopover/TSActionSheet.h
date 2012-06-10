@@ -37,5 +37,7 @@
                borderColor:(UIColor*)borderColor 
                      block:(void (^)())block;
 - (void) showWithTouch:(UIEvent*)senderEvent;
+- (void) showWithRect:(CGRect)senderRect;
+- (void) showWithCell:(UITableViewCell*)senderCell;
 
 @end

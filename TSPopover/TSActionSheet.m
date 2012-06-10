@@ -102,6 +102,25 @@
 //- (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated
 - (void) showWithTouch:(UIEvent*)senderEvent
 {
+    [self buildButtons];
+    [popoverController showPopoverWithTouch:senderEvent];
+}
+
+- (void) showWithCell:(UITableViewCell*)senderCell
+{
+    [self buildButtons];
+    [popoverController showPopoverWithCell:senderCell];
+}
+
+- (void) showWithRect:(CGRect)senderRect
+{
+    [self buildButtons];
+    [popoverController showPopoverWithRect:senderRect];
+    
+}
+
+- (void) buildButtons
+{
     NSUInteger i = 1;
     NSUInteger buttonHeight = BUTTON_HEIGHT;
     NSUInteger buttonY = BORDER;
@@ -143,14 +162,14 @@
     CGRect frame = self.frame;
     frame.size.height = buttonY;
     self.frame = frame;
-
+    
     popoverController.contentView = self;
     popoverController.cornerRadius = self.cornerRadius;
     popoverController.popoverBaseColor = self.popoverBaseColor;
     popoverController.popoverGradient = self.popoverGradient;
     popoverController.titleColor = self.titleColor;
-    [popoverController showPopoverWithTouch:senderEvent];
 }
+
 
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated 
 {
