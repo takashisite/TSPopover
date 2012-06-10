@@ -164,7 +164,7 @@
     [appWindow addSubview:self.view];
 
     
-    [UIView animateWithDuration:0.0
+    [UIView animateWithDuration:0.3
                           delay:0.0
                         options:UIViewAnimationOptionAllowAnimatedContent
                      animations:^{
