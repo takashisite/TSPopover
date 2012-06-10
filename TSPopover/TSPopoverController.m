@@ -124,7 +124,6 @@
     touchView.frame = CGRectMake(screenRect.origin.x, screenRect.origin.y-20, screenRect.size.width, screenRect.size.height);
     [touchView setDelegate:self];
     [self.view addSubview:touchView];
-    
     CGRect contentViewFrame = [self contentFrameRect:self.contentView.frame senderPoint:senderPoint];
     
     int backgroundPositionX = 0;
@@ -247,14 +246,16 @@
         
         if(arrowDirection == TSPopoverArrowDirectionTop){
             popoverY = senderPoint.y+ARROW_MARGIN;
-            if((popoverY+popoverHeight) > screenHeight - (OUTER_MARGIN*2+MARGIN*2)){
+            //if((popoverY+popoverHeight) > screenHeight - (OUTER_MARGIN*2+MARGIN*2)){
+            if((popoverY+popoverHeight) > screenHeight){
                 contentFrameRect.size.height = screenHeight - popoverY - titleLabelheight - (OUTER_MARGIN*2+MARGIN*2);
             }
         }
         
         if(arrowDirection == TSPopoverArrowDirectionBottom){
             popoverY = senderPoint.y - ARROW_MARGIN;
-            if((popoverY-popoverHeight) < screenRect.origin.y+(OUTER_MARGIN*2+MARGIN*2)){
+            //if((popoverY-popoverHeight) < screenRect.origin.y+(OUTER_MARGIN*2+MARGIN*2)){
+            if((popoverY-popoverHeight) < 0){
                 contentFrameRect.size.height = popoverY - screenRect.origin.y - titleLabelheight - (OUTER_MARGIN+MARGIN*2);
             }
         }
@@ -282,7 +283,6 @@
         
     }
     
-    
     return contentFrameRect;
 }
 
@@ -299,7 +299,7 @@
         
         popoverWidth = contentFrame.size.width+MARGIN*2;
         popoverHeight = contentFrame.size.height+titleLabelheight+(ARROW_SIZE+MARGIN*2);
-        
+
         popoverX = senderPoint.x - (popoverWidth/2);
         if(popoverX < OUTER_MARGIN) {
             popoverX = OUTER_MARGIN;
