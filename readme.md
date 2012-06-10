@@ -31,10 +31,11 @@ UIPopover like UI (with ActionSheet) for iPhone - there is lot's of work still t
 - title text font
 
 ## ToDo
-- Landscape mode suppoert.
+- Landscape mode support.
 - Support iOS 4.2
 
 ## Changelog
+- 06/10/2012 Added method for open popover from tableview cell. 
 - 05/21/2012 Added TSActionSheet
 
 
