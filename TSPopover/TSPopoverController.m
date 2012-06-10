@@ -108,7 +108,7 @@
 - (void) showPopoverWithPoint:(CGPoint)senderPoint
 {
     TSPopoverTouchView *touchView = [[TSPopoverTouchView alloc] init];
-    touchView.frame = CGRectMake(0, 0, 320, 480);
+    touchView.frame = CGRectMake(screenRect.origin.x, screenRect.origin.y-20, screenRect.size.width, screenRect.size.height);
     [touchView setDelegate:self];
     [self.view addSubview:touchView];
     
