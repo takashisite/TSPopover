@@ -159,6 +159,11 @@
     layer.shadowOpacity = 0.5;
     
     [self.view addSubview:popoverView];
+	
+    self.view.layer.shadowOffset = CGSizeMake(0, 1);
+	self.view.layer.shadowColor = [[UIColor colorWithRed:0.37 green:0.37 blue:0.37 alpha:1.0] CGColor];
+	self.view.layer.shadowRadius = 0.5;
+	self.view.layer.shadowOpacity = 0.8;
     
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
     [appWindow addSubview:self.view];
