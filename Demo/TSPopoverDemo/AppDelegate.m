@@ -22,6 +22,8 @@
     MainViewController *viewController = [[MainViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = navController;
+    
+    //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 
     [self.window makeKeyAndVisible];
     

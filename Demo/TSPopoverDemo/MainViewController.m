@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.contentMode = UIViewContentModeScaleAspectFill;
     
     UIBarButtonItem * topRightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(showActionSheet:forEvent:)];
     self.navigationItem.leftBarButtonItem = topRightButton;
@@ -63,24 +64,28 @@
     [topButton addTarget:self action:@selector(showPopover:forEvent:) forControlEvents:UIControlEventTouchUpInside];
     topButton.frame = CGRectMake(10,10, 300, 30);
     [topButton setTitle:@"button" forState:UIControlStateNormal];
+    topButton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [self.view addSubview:topButton];
     
     UIButton *bottomButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [bottomButton addTarget:self action:@selector(showPopover:forEvent:) forControlEvents:UIControlEventTouchUpInside];
-    bottomButton.frame = CGRectMake(10,330, 300, 30);
+    bottomButton.frame = CGRectMake(10,410, 300, 30);
     [bottomButton setTitle:@"button" forState:UIControlStateNormal];
+    bottomButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [self.view addSubview:bottomButton];
     
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [rightButton addTarget:self action:@selector(showPopover:forEvent:) forControlEvents:UIControlEventTouchUpInside];
     rightButton.frame = CGRectMake(300,60, 20, 60);
     [rightButton setTitle:@"button" forState:UIControlStateNormal];
+    rightButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [self.view addSubview:rightButton];
     
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [leftButton addTarget:self action:@selector(showPopover:forEvent:) forControlEvents:UIControlEventTouchUpInside];
     leftButton.frame = CGRectMake(0,210, 20, 60);
     [leftButton setTitle:@"button" forState:UIControlStateNormal];
+    leftButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
     [self.view addSubview:leftButton];
 
 
@@ -95,7 +100,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 //-(void)showPopover:(id)sender 
