@@ -35,6 +35,7 @@
 @synthesize arrowPosition = _arrowPosition;
 @synthesize popoverBaseColor = _popoverBaseColor;
 @synthesize popoverGradient = _popoverGradient;
+@synthesize delegate;
 
 - (id)init {
 	if ((self = [super init])) {
@@ -218,7 +219,8 @@
 
 - (void) dismissPopoverAnimated:(BOOL)animated
 {
-    if (self.view) {
+
+    if (self.view && (!delegate || [delegate popoverControllerShouldDismissPopover:self]) ) {
         if(animated) {
             [UIView animateWithDuration:0.2
                                   delay:0.0
@@ -234,6 +236,7 @@
                                  self.titleText = nil;
                                  self.titleColor = nil;
                                  self.titleFont = nil;
+								 [delegate popoverControllerDidDismissPopover:self];
                              }
              ];
         }else{
@@ -244,6 +247,7 @@
             self.titleText = nil;
             self.titleColor = nil;
             self.titleFont = nil;
+			[delegate popoverControllerDidDismissPopover:self];
         }
         
     }

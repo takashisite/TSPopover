@@ -115,6 +115,7 @@
     popoverController.titleText = @"change order";
     popoverController.popoverBaseColor = [UIColor lightGrayColor];
     popoverController.popoverGradient= NO;
+	popoverController.delegate=self;
 //    popoverController.arrowPosition = TSPopoverArrowPositionHorizontal;
     [popoverController showPopoverWithTouch:event];
 
@@ -136,4 +137,11 @@
     [actionSheet showWithTouch:event];
 }
 
+- (void)popoverControllerDidDismissPopover:(TSPopoverController *)popoverController{
+	NSLog(@"Delegate: Popover did dismiss");
+}
+- (BOOL)popoverControllerShouldDismissPopover:(TSPopoverController *)popoverController{
+	NSLog(@"Delegate: Popover should dismiss?");
+	return YES;
+}
 @end

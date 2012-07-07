@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TSPopoverController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <TSPopoverControllerDelegate>
 
 @end

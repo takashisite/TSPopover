@@ -24,6 +24,14 @@ enum {
 };
 typedef NSUInteger TSPopoverArrowPosition;
 
+@class TSPopoverController;
+@protocol TSPopoverControllerDelegate<NSObject>
+
+- (void)popoverControllerDidDismissPopover:(TSPopoverController *)popoverController;
+- (BOOL)popoverControllerShouldDismissPopover:(TSPopoverController *)popoverController;
+
+@end
+
 @class TSPopoverPopoverView;
 
 @interface TSPopoverController : UIViewController <TSPopoverTouchesDelegate>
@@ -32,6 +40,7 @@ typedef NSUInteger TSPopoverArrowPosition;
     TSPopoverArrowDirection arrowDirection;
     CGRect screenRect;
     int titleLabelheight;
+	id <TSPopoverControllerDelegate> delegate;
 }
 
 @property (strong, nonatomic) UIViewController *contentViewController;
@@ -43,6 +52,7 @@ typedef NSUInteger TSPopoverArrowPosition;
 @property (nonatomic) int cornerRadius;
 @property (nonatomic, readwrite) TSPopoverArrowPosition arrowPosition;
 @property (nonatomic) BOOL popoverGradient; 
+@property (nonatomic) id <TSPopoverControllerDelegate> delegate;
 
 - (id)initWithContentViewController:(UIViewController*)viewController;
 - (id)initWithView:(UIView*)view;
