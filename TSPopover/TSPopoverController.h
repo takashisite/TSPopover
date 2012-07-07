@@ -50,6 +50,6 @@ typedef NSUInteger TSPopoverArrowPosition;
 - (void) showPopoverWithCell:(UITableViewCell*)senderCell;
 - (void) showPopoverWithRect:(CGRect)senderRect;
 - (void) view:(UIView*)view touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;
-- (void) dismissPopoverAnimatd:(BOOL)animated;
+- (void) dismissPopoverAnimated:(BOOL)animated;
 
 @end

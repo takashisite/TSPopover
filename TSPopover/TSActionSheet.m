@@ -184,12 +184,12 @@
     
     if (animated)
     {
-        [popoverController dismissPopoverAnimatd:YES];
+        [popoverController dismissPopoverAnimated:YES];
         [self removeFromSuperview];
     }
     else
     {
-        [popoverController dismissPopoverAnimatd:NO];
+        [popoverController dismissPopoverAnimated:NO];
         [self removeFromSuperview];
     }
 }

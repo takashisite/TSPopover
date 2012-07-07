@@ -191,9 +191,11 @@
 	self.view.layer.shadowOpacity = 0.8;
     
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
-    //[appWindow addSubview:self.view];
-
-    [appWindow.rootViewController.view addSubview:self.view];
+	if ([appWindow.rootViewController.view isFirstResponder]) {
+		[appWindow.rootViewController.view addSubview:self.view];
+	} else {
+		[appWindow addSubview:self.view];
+	}
 
     
     [UIView animateWithDuration:0.3
@@ -210,11 +212,11 @@
 
 - (void)view:(UIView*)view touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
-    [self dismissPopoverAnimatd:YES];
+    [self dismissPopoverAnimated:YES];
 }
 
 
-- (void) dismissPopoverAnimatd:(BOOL)animated
+- (void) dismissPopoverAnimated:(BOOL)animated
 {
     if (self.view) {
         if(animated) {
