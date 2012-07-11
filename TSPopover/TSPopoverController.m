@@ -21,7 +21,11 @@
 #define ARROW_MARGIN 2
 
 @interface TSPopoverController ()
-
+- (void) checkArrowPosition:(CGRect)senderRect;
+- (CGPoint)senderPointFromSenderRect:(CGRect)senderRect;
+- (void) showPopoverWithPoint:(CGPoint)senderPoint;
+- (CGRect) contentFrameRect:(CGRect)contentFrame senderPoint:(CGPoint)senderPoint;
+- (CGRect)popoverFrameRect:(CGRect)contentFrame senderPoint:(CGPoint)senderPoint;
 @end
 
 @implementation TSPopoverController
@@ -331,7 +335,7 @@
         
         popoverRect = CGRectMake(popoverX, popoverY, popoverWidth, popoverHeight);
         
-    }else if(self.arrowPosition = TSPopoverArrowPositionHorizontal){
+    }else if(self.arrowPosition == TSPopoverArrowPositionHorizontal){
         
         popoverWidth = contentFrame.size.width+ARROW_SIZE+MARGIN*2;
         popoverHeight = contentFrame.size.height+titleLabelheight+MARGIN*2;
