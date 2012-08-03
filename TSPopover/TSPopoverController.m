@@ -261,6 +261,9 @@
     contentFrameRect.origin.y = MARGIN;
     
     float statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    if(self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight){
+        statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.width;
+    }
 
 
     if(self.arrowPosition == TSPopoverArrowPositionVertical){
