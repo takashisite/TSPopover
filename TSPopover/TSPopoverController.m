@@ -100,7 +100,8 @@
     CGPoint applicationFramePoint = CGPointMake(screenRect.origin.x,0-screenRect.origin.y);
     //CGPoint senderLocationInWindowPoint = [[[UIApplication sharedApplication] keyWindow] convertPoint:applicationFramePoint fromView:senderView];
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
-    CGPoint senderLocationInWindowPoint = [appWindow.rootViewController.view convertPoint:applicationFramePoint fromView:senderView];
+    UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
+    CGPoint senderLocationInWindowPoint = [topView convertPoint:applicationFramePoint fromView:senderView];
     CGRect senderFrame = [[[senderEvent.allTouches anyObject] view] frame];
     senderFrame.origin.x = senderLocationInWindowPoint.x;
     senderFrame.origin.y = senderLocationInWindowPoint.y;
@@ -188,8 +189,9 @@
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
     //[appWindow addSubview:self.view];
 
-    [appWindow.rootViewController.view addSubview:self.view];
-
+    UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
+    [topView addSubview:self.view];
+    
     
     [UIView animateWithDuration:0.0
                           delay:0.0
