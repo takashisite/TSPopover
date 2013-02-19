@@ -47,10 +47,13 @@
         self.arrowPosition = TSPopoverArrowPositionVertical;
         self.popoverBaseColor = [UIColor blackColor];
         self.popoverGradient = YES;
-        screenRect = [[UIScreen mainScreen] bounds];
+        
+        UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
+        UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
+        screenRect = topView.bounds;
         if(self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight){
-            screenRect.size.width = [[UIScreen mainScreen] bounds].size.height;
-            screenRect.size.height = [[UIScreen mainScreen] bounds].size.width;
+            screenRect.size.width = topView.bounds.size.height;
+            screenRect.size.height = topView.bounds.size.width;            
         }
         self.view.frame = screenRect;
         screenRect.origin.y = 0;
@@ -98,25 +101,32 @@
 {    
     UIView *senderView = [[senderEvent.allTouches anyObject] view];
     CGPoint applicationFramePoint = CGPointMake(screenRect.origin.x,0-screenRect.origin.y);
-    //CGPoint senderLocationInWindowPoint = [[[UIApplication sharedApplication] keyWindow] convertPoint:applicationFramePoint fromView:senderView];
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
     UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
     CGPoint senderLocationInWindowPoint = [topView convertPoint:applicationFramePoint fromView:senderView];
+    UIView *rootView = appWindow.rootViewController.view;
+    CGPoint rootOrigin = [rootView convertPoint:CGPointMake(0, 0) fromView:topView];
+    
     CGRect senderFrame = [[[senderEvent.allTouches anyObject] view] frame];
-    senderFrame.origin.x = senderLocationInWindowPoint.x;
+    senderFrame.origin.x = senderLocationInWindowPoint.x + rootOrigin.x;
     senderFrame.origin.y = senderLocationInWindowPoint.y;
+    
     CGPoint senderPoint = [self senderPointFromSenderRect:senderFrame];
     [self showPopoverWithPoint:senderPoint];
 }
 
 - (void) showPopoverWithCell:(UITableViewCell*)senderCell
 {
-    UIView *senderView = senderCell.superview;
+    UIView *senderView = senderCell;
     CGPoint applicationFramePoint = CGPointMake(screenRect.origin.x,0-screenRect.origin.y);
-    CGPoint senderLocationInWindowPoint = [[[UIApplication sharedApplication] keyWindow] convertPoint:applicationFramePoint fromView:senderView];
+    UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
+    UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
+    CGPoint senderLocationInWindowPoint = [topView convertPoint:applicationFramePoint fromView:senderView];
+    
     CGRect senderFrame = senderCell.frame;
     senderFrame.origin.x = senderLocationInWindowPoint.x;
     senderFrame.origin.y = senderLocationInWindowPoint.y + senderFrame.origin.y;
+    
     CGPoint senderPoint = [self senderPointFromSenderRect:senderFrame];
     [self showPopoverWithPoint:senderPoint];
 }
