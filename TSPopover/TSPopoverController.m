@@ -47,16 +47,17 @@
         self.arrowPosition = TSPopoverArrowPositionVertical;
         self.popoverBaseColor = [UIColor blackColor];
         self.popoverGradient = YES;
-        screenRect = [[UIScreen mainScreen] bounds];
-        if(self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight){
-            screenRect.size.width = [[UIScreen mainScreen] bounds].size.height;
-            screenRect.size.height = [[UIScreen mainScreen] bounds].size.width;
-        }
+        
+        UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
+        UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
+        screenRect = topView.bounds;
         self.view.frame = screenRect;
         screenRect.origin.y = 0;
         screenRect.size.height = screenRect.size.height-20;   
         
         titleLabelheight = 0;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 	}
 	return self;
 }
@@ -98,24 +99,32 @@
 {    
     UIView *senderView = [[senderEvent.allTouches anyObject] view];
     CGPoint applicationFramePoint = CGPointMake(screenRect.origin.x,0-screenRect.origin.y);
-    //CGPoint senderLocationInWindowPoint = [[[UIApplication sharedApplication] keyWindow] convertPoint:applicationFramePoint fromView:senderView];
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
-    CGPoint senderLocationInWindowPoint = [appWindow.rootViewController.view convertPoint:applicationFramePoint fromView:senderView];
+    UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
+    CGPoint senderLocationInWindowPoint = [topView convertPoint:applicationFramePoint fromView:senderView];
+    UIView *rootView = appWindow.rootViewController.view;
+    CGPoint rootOrigin = [rootView convertPoint:CGPointMake(0, 0) fromView:topView];
+    
     CGRect senderFrame = [[[senderEvent.allTouches anyObject] view] frame];
-    senderFrame.origin.x = senderLocationInWindowPoint.x;
+    senderFrame.origin.x = senderLocationInWindowPoint.x + rootOrigin.x;
     senderFrame.origin.y = senderLocationInWindowPoint.y;
+    
     CGPoint senderPoint = [self senderPointFromSenderRect:senderFrame];
     [self showPopoverWithPoint:senderPoint];
 }
 
 - (void) showPopoverWithCell:(UITableViewCell*)senderCell
 {
-    UIView *senderView = senderCell.superview;
+    UIView *senderView = senderCell;
     CGPoint applicationFramePoint = CGPointMake(screenRect.origin.x,0-screenRect.origin.y);
-    CGPoint senderLocationInWindowPoint = [[[UIApplication sharedApplication] keyWindow] convertPoint:applicationFramePoint fromView:senderView];
+    UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
+    UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
+    CGPoint senderLocationInWindowPoint = [topView convertPoint:applicationFramePoint fromView:senderView];
+    
     CGRect senderFrame = senderCell.frame;
     senderFrame.origin.x = senderLocationInWindowPoint.x;
     senderFrame.origin.y = senderLocationInWindowPoint.y + senderFrame.origin.y;
+    
     CGPoint senderPoint = [self senderPointFromSenderRect:senderFrame];
     [self showPopoverWithPoint:senderPoint];
 }
@@ -188,8 +197,9 @@
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
     //[appWindow addSubview:self.view];
 
-    [appWindow.rootViewController.view addSubview:self.view];
-
+    UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
+    [topView addSubview:self.view];
+    
     
     [UIView animateWithDuration:0.0
                           delay:0.0
@@ -206,6 +216,11 @@
 - (void)view:(UIView*)view touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
     [self dismissPopoverAnimatd:YES];
+}
+
+- (void)orientationChanged:(NSNotification *)notification
+{
+    [self dismissPopoverAnimatd:NO];
 }
 
 
@@ -240,6 +255,8 @@
         }
         
     }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (CGRect) contentFrameRect:(CGRect)contentFrame senderPoint:(CGPoint)senderPoint
@@ -252,6 +269,9 @@
     contentFrameRect.origin.y = MARGIN;
     
     float statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    if(self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight){
+        statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.width;
+    }
 
 
     if(self.arrowPosition == TSPopoverArrowPositionVertical){
