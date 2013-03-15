@@ -51,10 +51,6 @@
         UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
         UIView *topView = appWindow.rootViewController.modalViewController?appWindow.rootViewController.modalViewController.view:appWindow.rootViewController.view;
         screenRect = topView.bounds;
-        if(self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight){
-            screenRect.size.width = topView.bounds.size.height;
-            screenRect.size.height = topView.bounds.size.width;            
-        }
         self.view.frame = screenRect;
         screenRect.origin.y = 0;
         screenRect.size.height = screenRect.size.height-20;   
