@@ -154,7 +154,7 @@
         titleLabel.textColor = self.titleColor;
         titleLabel.text = self.titleText;
         titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.textAlignment = UITextAlignmentCenter;
+        titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.font = self.titleFont;
     }
     contentViewFrame.origin.x = backgroundPositionX+MARGIN;
