@@ -188,7 +188,12 @@
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
     //[appWindow addSubview:self.view];
 
-    [appWindow.rootViewController.view addSubview:self.view];
+    if (appWindow.rootViewController.presentedViewController != nil) {
+        [appWindow.rootViewController.presentedViewController.view addSubview:self.view];
+    }
+    else {
+        [appWindow.rootViewController.view addSubview:self.view];
+    }
 
     
     [UIView animateWithDuration:0.0
