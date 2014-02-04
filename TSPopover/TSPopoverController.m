@@ -35,6 +35,7 @@
 @synthesize arrowPosition = _arrowPosition;
 @synthesize popoverBaseColor = _popoverBaseColor;
 @synthesize popoverGradient = _popoverGradient;
+@synthesize delegate;
 
 - (id)init {
 	if ((self = [super init])) {
@@ -184,14 +185,21 @@
     layer.shadowOpacity = 0.5;
     
     [self.view addSubview:popoverView];
+	
+    self.view.layer.shadowOffset = CGSizeMake(0, 1);
+	self.view.layer.shadowColor = [[UIColor colorWithRed:0.37 green:0.37 blue:0.37 alpha:1.0] CGColor];
+	self.view.layer.shadowRadius = 0.5;
+	self.view.layer.shadowOpacity = 0.8;
     
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
-    //[appWindow addSubview:self.view];
-
-    [appWindow.rootViewController.view addSubview:self.view];
+	if ([appWindow.rootViewController.view isFirstResponder]) {
+		[appWindow.rootViewController.view addSubview:self.view];
+	} else {
+		[appWindow addSubview:self.view];
+	}
 
     
-    [UIView animateWithDuration:0.0
+    [UIView animateWithDuration:0.3
                           delay:0.0
                         options:UIViewAnimationOptionAllowAnimatedContent
                      animations:^{
@@ -205,13 +213,14 @@
 
 - (void)view:(UIView*)view touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
-    [self dismissPopoverAnimatd:YES];
+    [self dismissPopoverAnimated:YES];
 }
 
 
-- (void) dismissPopoverAnimatd:(BOOL)animated
+- (void) dismissPopoverAnimated:(BOOL)animated
 {
-    if (self.view) {
+
+    if (self.view && (!delegate || [delegate popoverControllerShouldDismissPopover:self]) ) {
         if(animated) {
             [UIView animateWithDuration:0.2
                                   delay:0.0
@@ -227,6 +236,7 @@
                                  self.titleText = nil;
                                  self.titleColor = nil;
                                  self.titleFont = nil;
+								 [delegate popoverControllerDidDismissPopover:self];
                              }
              ];
         }else{
@@ -237,6 +247,7 @@
             self.titleText = nil;
             self.titleColor = nil;
             self.titleFont = nil;
+			[delegate popoverControllerDidDismissPopover:self];
         }
         
     }
