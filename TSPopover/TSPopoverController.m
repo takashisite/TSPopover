@@ -21,7 +21,11 @@
 #define ARROW_MARGIN 2
 
 @interface TSPopoverController ()
-
+- (void) checkArrowPosition:(CGRect)senderRect;
+- (CGPoint)senderPointFromSenderRect:(CGRect)senderRect;
+- (void) showPopoverWithPoint:(CGPoint)senderPoint;
+- (CGRect) contentFrameRect:(CGRect)contentFrame senderPoint:(CGPoint)senderPoint;
+- (CGRect)popoverFrameRect:(CGRect)contentFrame senderPoint:(CGPoint)senderPoint;
 @end
 
 @implementation TSPopoverController
@@ -188,7 +192,7 @@
     UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
     //[appWindow addSubview:self.view];
 
-    [appWindow.rootViewController.view addSubview:self.view];
+    [appWindow addSubview:self.view];
 
     
     [UIView animateWithDuration:0.0

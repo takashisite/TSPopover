@@ -15,6 +15,12 @@
 #define TITLE_SHADOW_OFFSET   CGSizeMake(0, -1)
 #define BUTTON_HEIGHT 35
 
+@interface TSActionSheet()
+
+- (void)buildButtons;
+- (UIImage*)buttonImage:(UIColor*)color borderWidth:(NSUInteger)borderWidth borderColor:(UIColor*)borderColor;
+@end
+
 @implementation TSActionSheet
 
 @synthesize cornerRadius = _cornerRadius;

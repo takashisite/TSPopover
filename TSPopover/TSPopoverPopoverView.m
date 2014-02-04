@@ -12,6 +12,10 @@
 #define MARGIN 5
 #define ARROW_SIZE 20
 
+@interface TSPopoverPopoverView()
+-(UIImage*)backgroundImage;
+@end
+
 @implementation TSPopoverPopoverView
 
 @synthesize cornerRadius = _cornerRadius;
@@ -34,7 +38,7 @@
 
 - (void)drawRect:(CGRect)rect
 {    
-    UIImage *backgroundImage = self.backgroundImage;
+    UIImage *backgroundImage = [self backgroundImage];
     [backgroundImage drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) blendMode:kCGBlendModeNormal alpha:1];
     
 }
