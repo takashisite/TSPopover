@@ -251,7 +251,9 @@
     contentFrameRect.origin.x = MARGIN;
     contentFrameRect.origin.y = MARGIN;
     
-    float statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    float statusBarHeight = screenWidth > screenHeight ?
+    [[UIApplication sharedApplication] statusBarFrame].size.width :
+    [[UIApplication sharedApplication] statusBarFrame].size.height;
 
 
     if(self.arrowPosition == TSPopoverArrowPositionVertical){
