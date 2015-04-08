@@ -48,10 +48,6 @@
         self.popoverBaseColor = [UIColor blackColor];
         self.popoverGradient = YES;
         screenRect = [[UIScreen mainScreen] bounds];
-        if(self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight){
-            screenRect.size.width = [[UIScreen mainScreen] bounds].size.height;
-            screenRect.size.height = [[UIScreen mainScreen] bounds].size.width;
-        }
         self.view.frame = screenRect;
         screenRect.origin.y = 0;
         screenRect.size.height = screenRect.size.height-20;   
